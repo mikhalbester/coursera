@@ -3,18 +3,18 @@ library(plyr)
 library(dplyr)
 
 #import data
-x_train = 'project/UCI HAR Dataset/train/X_train.txt'
-x_test = 'project/UCI HAR Dataset/test/X_test.txt'
+x_train = '/UCI HAR Dataset/train/X_train.txt'
+x_test = '/UCI HAR Dataset/test/X_test.txt'
 
-y_train = read.delim('project/UCI HAR Dataset/train/y_train.txt', header = FALSE, sep = " ")
-y_test = read.delim('project/UCI HAR Dataset/test/y_test.txt', header = FALSE, sep = " ")
+y_train = read.delim('/UCI HAR Dataset/train/y_train.txt', header = FALSE, sep = " ")
+y_test = read.delim('/UCI HAR Dataset/test/y_test.txt', header = FALSE, sep = " ")
 
-subject_train = read.delim('project/UCI HAR Dataset/train/subject_train.txt', header = FALSE, sep = " ")
-subject_test = read.delim('project/UCI HAR Dataset/test/subject_test.txt', header = FALSE, sep = " ")
+subject_train = read.delim('/UCI HAR Dataset/train/subject_train.txt', header = FALSE, sep = " ")
+subject_test = read.delim('/UCI HAR Dataset/test/subject_test.txt', header = FALSE, sep = " ")
 
 
-column_names = as.vector(read.delim('project/UCI HAR Dataset/features.txt', header = FALSE, sep=" ")[,2])
-activity_labels = read.delim('project/UCI HAR Dataset/activity_labels.txt', header = FALSE, sep=" ")
+column_names = as.vector(read.delim('/UCI HAR Dataset/features.txt', header = FALSE, sep=" ")[,2])
+activity_labels = read.delim('/UCI HAR Dataset/activity_labels.txt', header = FALSE, sep=" ")
 
 mean_std_columns = grep('mean|std', column_names) 
 
@@ -60,4 +60,4 @@ names(df)[names(df) == 'V1'] <- 'subject'
 # 5. Independent Tidy Dataset - Avg of Each Variable for Each Activity & Subject
 ##
 df %>% group_by(subject, activity) %>% summarise_all(mean) -> tidy_dataset
-write.csv(tidy_dataset, 'tidy_dataset.csv')
+write.table(tidy_dataset, 'tidy_dataset.txt', row.names = FALSE)
