@@ -1,4 +1,4 @@
-#Read Me - Overview of Project and Files
+# Read Me - Overview of Project and Files
 This is my submission for the final project for JHU's Getting and Cleaning Data Course Project on Coursera. The purpose of this project is to demonstrate my ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis.
 
 The data for this project comes from UCI's archives: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. It represents accelerometer data from smartphones intended to be used for wearable computing.
